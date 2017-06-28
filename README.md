@@ -1,1 +1,2 @@
 # Flashcards
+Personalized Flashcards application
