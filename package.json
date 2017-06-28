@@ -22,11 +22,16 @@
   },
   "homepage": "https://github.com/efichot/Flashcards#readme",
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "pug": "^2.0.0-rc.2"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
     "babel-preset-latest": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.6.0",
     "nodemon": "^1.11.0"
   }
 }
