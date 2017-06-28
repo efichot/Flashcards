@@ -1,5 +1,5 @@
 // const express = require('express');
-import express from 'express'
+import express from 'express';
 
 const app = express();
 
@@ -9,8 +9,8 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/hello', (req, res) => {
-    res.send('<h1>Hello!</h1>');
+app.get('/cards', (req, res) => {
+    res.render('card', { prompt: 'Who is buried in Grants tomb?', hint: 'Think about whose tomb it is.' });
 });
 
 app.listen(3000, () => {
