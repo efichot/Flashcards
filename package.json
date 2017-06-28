@@ -2,9 +2,10 @@
   "name": "flashcards",
   "version": "1.0.0",
   "description": "Personalized flascards app",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js --exec babel-node --presets=latest",
+    "deploy": "npm install && npm start"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "babel-preset-latest": "^6.24.1"
+    "babel-preset-latest": "^6.24.1",
+    "nodemon": "^1.11.0"
   }
 }
