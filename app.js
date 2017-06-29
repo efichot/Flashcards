@@ -11,21 +11,24 @@ app.use(cookieParser());
 
 app.set('view engine', 'pug');
 
-app.get('/', (req, res) => {
-	res.render('index');
+const mainRoutes = require('./routes/index.js');
+const cardRoutes = require('./routes/cards.js');
+
+app.use(mainRoutes);
+app.use('/cards', cardRoutes);
+
+// catch 404
+app.use((req, res, next) => {
+	const err = new Error('Not Found');
+	err.status = 404;
+	next(err);
 });
 
-app.get('/cards', (req, res) => {
-	res.render('card', { prompt: 'Who is buried in Grants tomb?', hint: 'Think about whose tomb it is.' });
-});
-
-app.get('/hello', (req, res) => {
-	res.render('hello', { name: req.cookies.username });
-});
-
-app.post('/hello', (req, res) => {
-	res.cookie('username', req.body.username);
-	res.render('hello', { name: req.body.username });
+// if error occurs
+app.use((err, req, res, next) => {
+	res.status(err.status);
+	res.render('error', { err });
+	next();
 });
 
 app.listen(3000, () => {
