@@ -5,29 +5,27 @@ const router = express.Router();
 router.get('/', (req, res) => {
 	const name = req.cookies.username;
 	if (name) {
-		res.render('index', { name });
-	} else {
-		res.redirect('/hello');
+		return res.render('index', { name });
 	}
+	return res.redirect('/hello');
 });
 
 router.get('/hello', (req, res) => {
 	const name = req.cookies.username;
 	if (name) {
-		res.redirect('/');
-	} else {
-		res.render('hello');
+		return res.redirect('/');
 	}
+	return res.render('hello');
 });
 
 router.get('/goodbye', (req, res) => {
 	res.clearCookie('username');
-	res.redirect('/hello');
+	return res.redirect('/hello');
 });
 
 router.post('/hello', (req, res) => {
 	res.cookie('username', req.body.username);
-	res.redirect('/');
+	return res.redirect('/');
 });
 
 module.exports = router;
